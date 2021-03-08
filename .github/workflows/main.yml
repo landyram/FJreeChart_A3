@@ -27,8 +27,6 @@ jobs:
       - name: test 2
         run: |
           echo Test starts here:
-          mkdir bin
-          mkdir lib
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
           javac -d bin/ $(find src/org/jfree/data -name "*.java")
           javac -d bin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar $(find test/ -name "*.java")
