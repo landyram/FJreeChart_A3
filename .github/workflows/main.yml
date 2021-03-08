@@ -25,8 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Running tests
-        run:
-          echo Starting the tests:
+        run: |
           mkdir bin
           mkdir lib
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
@@ -34,12 +33,4 @@ jobs:
           javac -d bin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar $(find test/ -name "*.java")
           ava -jar lib/junit-platform-console-standalone-1.5.2.jar --class-path bin --scan-class-path
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+  
