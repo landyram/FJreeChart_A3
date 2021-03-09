@@ -40,8 +40,7 @@ jobs:
           
       - name: compile src/
         run: |
-          javac -Xlint:unchecked
-          javac -d bin/ $(find src/ -name "*.java")
+          javac -Xlint:unchecked -Xlint:deprecation -d bin/ $(find src/ -name "*.java")
      
       - name: compile test/
         run: |
