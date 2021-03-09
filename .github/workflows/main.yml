@@ -24,10 +24,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: Making lib directory and installing standalone
+      - name: Making lib directory and installing libraries
         run: |
           mkdir lib
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
+          curl https://mvnrepository.com/artifact/org.mockito/mockito-all/2.0.2-beta -o lib/2.0.2-beta
           
       - name: Looking for Java files in src/
         run: |
