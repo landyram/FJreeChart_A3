@@ -31,7 +31,7 @@ jobs:
           
       - name: Looking for Java files in src/
         run: |
-          javac -d bin/ $(find src/ -name "*.java")
+          javac -d bin/ $(find src/org/free/data -name "*.java")
      
       - name: Looking for Java files in test/
         run: |
