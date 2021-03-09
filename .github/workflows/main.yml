@@ -41,7 +41,6 @@ jobs:
       - name: compile src/
         run: |
           javac -d bin -cp bin:lib/jcommon-1.0.5.jar -cp bin:lib/jcommon-1.0.0-rc1.jar -cp bin:lib/javax.servlet-api-3.0.1.jar $(find src/ -name "*.java")
-          javac -Xlint:unchecked -Xlint:deprecation -d bin/ $(find src/ -name "*.java")
      
       - name: compile test/
         run: |
