@@ -34,15 +34,19 @@ jobs:
           # installs servlet
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
           # installs jcommon-1.0.5
-          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar          
+          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
           
-      - name: Looking for Java files in src/
+          
+      - name: Finding java files in src/
         run: |
           javac -d bin/ $(find src/ -name "*.java")
      
-      - name: Looking for Java files in test/
+      - name: Finding java files in test/
         run: |
           javac -d bin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar $(find test/ -name "*.java")
+          javac -d bin -cp bin:lib/mockito-all-2.0.2-beta.jar $(find test/ -name "*.java")
+          javac -d bin -cp bin:lib/javax.servlet-api-3.0.1.jar $(find test/ -name "*.java")
+          javac -d bin -cp bin:lib/jcommon-1.0.5.jar $(find test/ -name "*.java")
           
       - name: running Tests
         run: |
