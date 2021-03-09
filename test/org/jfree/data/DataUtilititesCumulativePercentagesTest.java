@@ -119,7 +119,7 @@ class DataUtilititesCumulativePercentagesTest {
     KeyedValues actual = DataUtilities.getCumulativePercentages(keyValueMock3);
 
     assertAll(
-        () -> assertEquals(0, actual.getValue(0).doubleValue()),
+        () -> assertEquals(-4.0 / 7, actual.getValue(0).doubleValue()),
         () -> assertEquals(2.0 / 7.0, actual.getValue(1).doubleValue(), 0.0001d),
         () -> assertEquals(1.0, actual.getValue(2).doubleValue()));
   }

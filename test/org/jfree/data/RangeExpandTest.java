@@ -3,7 +3,6 @@ package org.jfree.data;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.security.InvalidParameterException;
 
@@ -26,11 +25,6 @@ class RangeExpandTest {
 
   @AfterEach
   void tearDown() throws Exception {}
-
-  @Test
-  void test() {
-    fail("Not yet implemented");
-  }
 
   @Test
   void testExpandDocExample() {
@@ -62,7 +56,7 @@ class RangeExpandTest {
   void testExpandFullPercent() {
     Range range = new Range(-6, -2);
 
-    Range expected = new Range(-2, 2);
+    Range expected = new Range(-10, 2);
     Range actual = Range.expand(range, 1.00, 1.00);
 
     assertAll(
@@ -75,7 +69,7 @@ class RangeExpandTest {
   void testExpandNegativePositive() {
     Range range = new Range(-6, 6);
 
-    Range expected = new Range(-3, 12);
+    Range expected = new Range(-9, 12);
     Range actual = Range.expand(range, 0.25, 0.5);
 
     assertAll(
