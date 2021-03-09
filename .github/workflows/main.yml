@@ -40,7 +40,7 @@ jobs:
           
       - name: compile src/
         run: |
-            javac -Xlint:unchecked,deprecation -d bin -cp bin:lib/* $(find src/ -name "*.java") 
+            javac -Xlint:unchecked,deprecation -d bin -cp bin:lib/*.jar $(find src/ -name "*.java") 
      
       - name: compile test/
         run: |
