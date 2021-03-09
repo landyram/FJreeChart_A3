@@ -27,21 +27,12 @@ jobs:
       - name: Making lib directory and installing libraries
         run: |
           mkdir lib
-          # installs junit-1.5.2 stand alone
-          #curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
-          # installs junit 3.8
-          #curl https://repo1.maven.org/maven2/junit/junit/3.8/junit-3.8.jar -o lib/junit-3.8.jar
-          #installs junit 3.8.1
-          curl https://repo1.maven.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar -o lib/junit-3.8.1.jar
-          # installs mockito
-          curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
-          # installs servlet
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
+          curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
-          # installs jcommon-1.0.5
           curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
           # install jcommon-1.0.0-rc1 but it not jcommon-1.0.0-rc1-cvs
-          # curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.0-rc1/jcommon-1.0.0-rc1.jar -o lib/jcommon-1.0.0-rc1.jar
-          # install gnujaxp
+          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.0-rc1/jcommon-1.0.0-rc1.jar -o lib/jcommon-1.0.0-rc1.jar
           curl https://packages.atlassian.com/maven-3rdparty/gnujaxp/gnujaxp/1.0.0/gnujaxp-1.0.0.jar -o lib/gnujaxp-1.0.0.jar
           
       - name: compile src/
