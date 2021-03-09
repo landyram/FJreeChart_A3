@@ -33,10 +33,13 @@ jobs:
           curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           # installs servlet
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
-          # installs jcommon 1.0.5
+          # installs jcommon-1.0.5
           curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
-          # installs jfree chart
-          curl https://repo1.maven.org/maven2/jfree/jfreechart/1.0.13/jfreechart-1.0.13.jar -o lib/jfreechart-1.0.13.jar
+          # installs gnujaxp
+          curl https://packages.atlassian.com/maven-3rdparty/gnujaxp/gnujaxp/1.0.0/gnujaxp-1.0.0.jar -o lib/gnujaxp.jar
+          # installs jfree-1.0.0-rc1
+          curl https://repo1.maven.org/maven2/jfree/jfreechart/1.0.0-rc1/jfreechart-1.0.0-rc1.jar -o lib/jfreechart-1.0.0-rc1.jar
+          
           
       - name: Looking for Java files in src/
         run: |
