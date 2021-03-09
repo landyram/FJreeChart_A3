@@ -28,7 +28,7 @@ jobs:
         run: |
           mkdir lib
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
-          curl https://mvnrepository.com/artifact/org.mockito/mockito-all/2.0.2-beta -o lib/2.0.2-beta
+          curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           
       - name: Looking for Java files in src/
         run: |
