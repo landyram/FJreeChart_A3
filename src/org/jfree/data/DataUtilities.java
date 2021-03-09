@@ -45,8 +45,6 @@
 
 package org.jfree.data;
 
-import java.security.InvalidParameterException;
-
 import org.jfree.data.general.DatasetUtilities;
 
 /**
@@ -104,7 +102,7 @@ public abstract class DataUtilities {
    */
   public static Number[] createNumberArray(double[] data) {
     if (data == null) {
-      throw new InvalidParameterException("Null 'data' argument.");
+      throw new IllegalArgumentException("Null 'data' argument.");
     }
     Number[] result = new Number[data.length];
     for (int i = 0; i < data.length; i++) {
@@ -122,7 +120,7 @@ public abstract class DataUtilities {
    */
   public static Number[][] createNumberArray2D(double[][] data) {
     if (data == null) {
-      throw new InvalidParameterException("Null 'data' argument.");
+      throw new IllegalArgumentException("Null 'data' argument.");
     }
     int l1 = data.length;
     Number[][] result = new Number[l1][];
@@ -158,7 +156,7 @@ public abstract class DataUtilities {
    */
   public static KeyedValues getCumulativePercentages(KeyedValues data) {
     if (data == null) {
-      throw new InvalidParameterException("Null 'data' argument.");
+      throw new IllegalArgumentException("Null 'data' argument.");
     }
     DefaultKeyedValues result = new DefaultKeyedValues();
     double total = 0.0;
@@ -172,7 +170,7 @@ public abstract class DataUtilities {
     for (int i = 0; i < data.getItemCount(); i++) {
       Number v = data.getValue(i);
       if (v != null) {
-        runningTotal = runningTotal + v.doubleValue();
+        runningTotal = runningTotal + v.doubleValue() * 0.9d;
       }
       result.addValue(data.getKey(i), new Double(runningTotal / total));
     }
