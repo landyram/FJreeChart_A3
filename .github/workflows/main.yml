@@ -26,21 +26,23 @@ jobs:
       - uses: actions/checkout@v2
       - name: Getting libraries
         run: |
+          mkdir bin
           mkdir lib
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
           curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
-          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
           curl https://packages.atlassian.com/maven-3rdparty/gnujaxp/gnujaxp/1.0.0/gnujaxp-1.0.0.jar -o lib/gnujaxp-1.0.0.jar
+          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
           # install jcommon-1.0.0-rc1 but it not jcommon-1.0.0-rc1-cvs
           curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.0-rc1/jcommon-1.0.0-rc1.jar -o lib/jcommon-1.0.0-rc1.jar
-          # junit dependencies for jcommon
-          curl https://repo1.maven.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar -o lib/junit-3.8.1.jar
+          # dependencies for jcommon
           curl https://repo1.maven.org/maven2/junit/junit/3.8/junit-3.8.jar -o lib/junit-3.8.jar
+          curl https://repo1.maven.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar -o lib/junit-3.8.1.jar
           
       - name: compile src/
         run: |
-            javac -d bin $(find src/ -name "*.java") 
+          # javac directory classpath soruce
+          javac -d bin -cp "lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.5.jar:lib/junit-3.8.jar:lib/junit-3.8.1.jar:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
      
       - name: compile test/
         run: |
