@@ -42,7 +42,7 @@ jobs:
       - name: compile src/
         run: |
           # javac directory classpath soruce
-          javac -d bin -cp "bin:src:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.5.jar:lib/junit-3.8.jar:lib/junit-3.8.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
+          javac -d bin -cp "bin:src/*.properties:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.5.jar:lib/junit-3.8.jar:lib/junit-3.8.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
      
       - name: compile test/
         run: |
