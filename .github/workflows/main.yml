@@ -46,7 +46,7 @@ jobs:
      
       - name: compile test/
         run: |
-          javac -d bin -cp "bin:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar;" $(find test/ -name "*.java")
+          javac -d bin -cp "bin:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar;" $(find test/ -name "*.java") $(find test/ -name "SerialUtilities.class")
           
       - name: running Tests
         run: |
