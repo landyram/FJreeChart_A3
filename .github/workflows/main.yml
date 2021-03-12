@@ -28,25 +28,29 @@ jobs:
         run: |
           mkdir bin
           mkdir lib
-          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
-          curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
+          # Libraries for src/
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
           curl https://packages.atlassian.com/maven-3rdparty/gnujaxp/gnujaxp/1.0.0/gnujaxp-1.0.0.jar -o lib/gnujaxp-1.0.0.jar
-          curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.5/jcommon-1.0.5.jar -o lib/jcommon-1.0.5.jar
-          # install jcommon-1.0.0-rc1 but it not jcommon-1.0.0-rc1-cvs
+          curl https://repo1.maven.org/maven2/org/jfree/jcommon/1.0.24/jcommon-1.0.24.jar -o lib/jcommon-1.0.24.jar
           curl https://repo1.maven.org/maven2/jfree/jcommon/1.0.0-rc1/jcommon-1.0.0-rc1.jar -o lib/jcommon-1.0.0-rc1.jar
-          # dependencies for jcommon
-          curl https://repo1.maven.org/maven2/junit/junit/3.8/junit-3.8.jar -o lib/junit-3.8.jar
-          curl https://repo1.maven.org/maven2/junit/junit/3.8.1/junit-3.8.1.jar -o lib/junit-3.8.1.jar
           
+          # libraries for test/
+          curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
+          
+          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.8.0-M1/junit-jupiter-api-5.8.0-M1.jar -o lib/junit-jupiter-api-5.8.0-M1.jar
+          curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.1/apiguardian-api-1.1.1.jar -o lib/apiguardian-api-1.1.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.8.0-M1/junit-platform-commons-1.8.0-M1.jar -o lib/junit-platform-commons-1.8.0-M1.jar
+          curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o lib/opentest4j-1.2.0.jar
+          
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
       - name: compile src/
         run: |
           # javac directory classpath soruce
-          javac -d bin -cp "bin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.5.jar:lib/junit-3.8.jar:lib/junit-3.8.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
-     
+          javac -d bin -cp "bin:lib/jcommon-1.0.24.jar:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
+      
       - name: compile test/
         run: |
-          javac -d bin -cp "bin:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar;" $(find test/ -name "*.java")
+          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.8.0-M1.jar:lib/apiguardian-api-1.1.1.jar:lib/junit-platform-commons-1.8.0-M1.jar:lib/opentest4j-1.2.0.jar:lib/junit-platform-console-standalone-1.5.2.jar;" test/org/jfree/data/*.java
           
       - name: running Tests
         run: |
