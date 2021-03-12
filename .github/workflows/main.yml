@@ -47,7 +47,7 @@ jobs:
           javac -d jbin -cp bin:lib/jcommon-1.0.24.jar src/org/jfree/data/Range.java 
           javac -d jbin -cp bin:lib/javax.servlet-api-3.0.1.jar src/org/jfree/data/Range.java 
           javac -d jbin -cp bin:lib/junit-3.8.jar src/org/jfree/data/Range.java 
-          javac -d jbin -cp bin:lib/gnujaxp-1.0.0.jar src/org/jfree/data/Range.java 
+          # javac -d jbin -cp bin:lib/gnujaxp-1.0.0.jar src/org/jfree/data/Range.java 
           javac -d jbin -cp bin:lib/mockito-all-2.0.2-beta.jar src/org/jfree/data/Range.java 
           javac -d jbin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar src/org/jfree/data/Range.java 
           javac -d jbin -cp bin:lib/jcommon-1.0.0-rc1.jar src/org/jfree/data/Range.java 
