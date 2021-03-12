@@ -64,7 +64,7 @@ jobs:
           # javac -d jbin -cp bin:lib/junit-3.8.2.jar src/org/jfree/data/*.java
       - name: compile test/
         run: |
-          javac -d jbin -cp "jbin:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar;" $(find test/ -name "*.java")
+          javac -d jbin -cp "jbin:lib/mockito-all-2.0.2-beta.jar:lib/junit-platform-console-standalone-1.5.2.jar;" $(find test/ -name "*.java")
           
       - name: running Tests
         run: |
