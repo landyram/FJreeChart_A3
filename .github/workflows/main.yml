@@ -38,18 +38,21 @@ jobs:
 
           curl https://repo1.maven.org/maven2/junit/junit/3.8/junit-3.8.jar -o lib/junit-3.8.jar
           curl https://repo1.maven.org/maven2/junit/junit/3.8.2/junit-3.8.2.jar -o lib/junit-3.8.2.jar
-          curl https://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar -o lib/cglib-2.1_3.jar
-          curl https://repo1.maven.org/maven2/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar -o lib/cglib-nodep-2.1_3.jar
-          curl https://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.jar -o lib/objenesis-1.0.jar
-          curl https://repo1.maven.org/maven2/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar -o lib/bsh-core-2.0b4.jar
+          
+          # testing other libraries
+          # curl https://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar -o lib/cglib-2.1_3.jar
+          # curl https://repo1.maven.org/maven2/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar -o lib/cglib-nodep-2.1_3.jar
+          # curl https://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.jar -o lib/objenesis-1.0.jar
+          # curl https://repo1.maven.org/maven2/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar -o lib/bsh-core-2.0b4.jar
     
           
       - name: compile src/
         run: |
           # javac directory classpath soruce
-          # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar:lib/bsh-core-2.0b4.jar:lib/objenesis-1.0.jar:lib/cglib-nodep-2.1_3.jar:lib/cglib-2.1_3.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
-          javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/bsh-core-2.0b4.jar:lib/objenesis-1.0.jar:lib/cglib-nodep-2.1_3.jar:lib/cglib-2.1_3.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
-          # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
+          javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
+         
+         # other tests - remove later
+         # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
           # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar" src/org/jfree/data/*.java
           # javac -d jbin -cp bin:lib/jcommon-1.0.24.jar src/org/jfree/data/*.java
           # javac -d jbin -cp bin:lib/javax.servlet-api-3.0.1.jar src/org/jfree/data/*.java
