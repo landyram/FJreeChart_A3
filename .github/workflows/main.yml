@@ -49,7 +49,7 @@ jobs:
       - name: compile src/
         run: |
           # javac directory classpath soruce
-          javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find bin/ -name *.class)
+          javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
          
          # other tests - remove later
          # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
