@@ -37,7 +37,9 @@ jobs:
           # libraries for test/
           curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar -o lib/junit-jupiter-api-5.7.0.jar
-
+          curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar -o lib/apiguardian-api-1.1.0.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar -o junit-platform-commons-1.7.0.jar
+          curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o opentest4j-1.2.0.jar
           
       - name: compile src/
         run: |
@@ -46,8 +48,7 @@ jobs:
       
       - name: compile test/
         run: |
-          javac -d jbin -cp "jbin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.7.0.jar;"
-          jacac -d  $(find test/ -name "*.java")
+          javac -d jbin -cp "jbin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.7.0.jar;" $(find test/ -name "*.java")
           
       - name: running Tests
         run: |
