@@ -43,16 +43,23 @@ jobs:
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-engine/1.7.1/junit-platform-engine-1.7.1.jar -o lib/junit-platform-engine-1.7.1.jar
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.jar -o lib/junit-platform-commons-1.7.1.jar
           curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o lib/opentest4j-1.2.0.jar
+          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-migrationsupport/5.7.1/junit-jupiter-migrationsupport-5.7.1.jar -o lib/junit-jupiter-migrationsupport-5.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-params/5.7.1/junit-jupiter-params-5.7.1.jar -o lib/junit-jupiter-params-5.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-launcher/1.7.1/junit-platform-launcher-1.7.1.jar -o lib/junit-platform-launcher-1.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-runner/1.7.1/junit-platform-runner-1.7.1.jar -o lib/junit-platform-runner-1.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-suite-api/1.7.1/junit-platform-suite-api-1.7.1.jar -o lib/junit-platform-suite-api-1.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/vintage/junit-vintage-engine/5.7.1/junit-vintage-engine-5.7.1.jar -o lib/junit-vintage-engine-5.7.1.jar
+          curl https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar -o lib/hamcrest-core-2.2.jar
           
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
       - name: compile src/
         run: |
-          # javac directory classpath soruce
+          # javac directory classpath source
           javac -d bin -cp "bin:lib/jcommon-1.0.24.jar:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
       
       - name: compile test/
         run: |
-          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-engine-5.7.1.jar:lib/apiguardian-api-1.1.0.jar:lib/junit-jupiter-api-5.7.1.jar:lib/junit-platform-engine-1.7.1.jar:lib/junit-platform-commons-1.7.1.jar:lib/opentest4j-1.2.0.jar:lib/junit-platform-console-standalone-1.5.2.jar;" $(find test/ -name *.java)
+          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-engine-5.7.1.jar:lib/apiguardian-api-1.1.0.jar:lib/junit-jupiter-api-5.7.1.jar:lib/junit-platform-engine-1.7.1.jar:lib/junit-platform-commons-1.7.1.jar:lib/opentest4j-1.2.0.jar:lib/junit-jupiter-migrationsupport-5.7.1.jar:lib/junit-jupiter-params-5.7.1.jar:lib/junit-platform-launcher-1.7.1.jar:lib/junit-platform-runner-1.7.1.jar:lib/junit-platform-suite-api-1.7.1.jar:lib/junit-vintage-engine-5.7.1.jar:lib/hamcrest-core-2.2.jar:lib/junit-platform-console-standalone-1.5.2.jar;" $(find test/ -name *.java)
           
       - name: running Tests
         run: |
