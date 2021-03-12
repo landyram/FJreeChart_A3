@@ -44,13 +44,13 @@ jobs:
           # javac directory classpath soruce
           # javac -d jbin -cp "jbin:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/jcommon-1.0.24.jar:lib/junit-3.8.jar:lib/junit-3.8.2.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java") $(find src/ -name *.class)
           javac -d jbin -cp bin:lib/jcommon-1.0.24.jar src/*
-          javac -d jbin -cp bin:lib/javax.servlet-api-3.0.1.jar src/*
-          javac -d jbin -cp bin:lib/junit-3.8.jar src/*
-          javac -d jbin -cp bin:lib/gnujaxp-1.0.0.jar src/*
-          javac -d jbin -cp bin:lib/mockito-all-2.0.2-beta.jar src/*
-          javac -d jbin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar src/*
-          javac -d jbin -cp bin:lib/jcommon-1.0.0-rc1.jar src/*
-          javac -d jbin -cp bin:lib/junit-3.8.2.jar src/*
+          # javac -d jbin -cp bin:lib/javax.servlet-api-3.0.1.jar src/*
+          # javac -d jbin -cp bin:lib/junit-3.8.jar src/*
+          # javac -d jbin -cp bin:lib/gnujaxp-1.0.0.jar src/*
+          # javac -d jbin -cp bin:lib/mockito-all-2.0.2-beta.jar src/*
+          # javac -d jbin -cp bin:lib/junit-platform-console-standalone-1.5.2.jar src/*
+          # javac -d jbin -cp bin:lib/jcommon-1.0.0-rc1.jar src/*
+          # javac -d jbin -cp bin:lib/junit-3.8.2.jar src/*
       - name: compile test/
         run: |
           javac -d jbin -cp "jbin:lib/junit-platform-console-standalone-1.5.2.jar:lib/mockito-all-2.0.2-beta.jar;" $(find test/ -name "*.java")
