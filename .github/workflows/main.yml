@@ -37,10 +37,11 @@ jobs:
           # libraries for test/
           curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           
-          https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.7.1/junit-jupiter-engine-5.7.1.jar -o lib/junit-jupiter-engine-5.7.1.jar
-          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.8.0-M1/junit-jupiter-api-5.8.0-M1.jar -o lib/junit-jupiter-api-5.8.0-M1.jar
-          curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.1/apiguardian-api-1.1.1.jar -o lib/apiguardian-api-1.1.1.jar
-          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.8.0-M1/junit-platform-commons-1.8.0-M1.jar -o lib/junit-platform-commons-1.8.0-M1.jar
+          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.7.1/junit-jupiter-engine-5.7.1.jar -o lib/junit-jupiter-engine-5.7.1.jar
+          curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar -o lib/apiguardian-api-1.1.0.jar
+          curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.7.1/junit-jupiter-api-5.7.1.jar -o lib/junit-jupiter-api-5.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-engine/1.7.1/junit-platform-engine-1.7.1.jar -o lib/junit-platform-engine-1.7.1.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.1/junit-platform-commons-1.7.1.jar -o lib/junit-platform-commons-1.7.1.jar
           curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o lib/opentest4j-1.2.0.jar
           
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
@@ -51,7 +52,7 @@ jobs:
       
       - name: compile test/
         run: |
-          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-engine-5.7.1.jar:lib/junit-jupiter-api-5.8.0-M1.jar:lib/apiguardian-api-1.1.1.jar:lib/junit-platform-commons-1.8.0-M1.jar:lib/opentest4j-1.2.0.jar:lib/junit-platform-console-standalone-1.5.2.jar;" test/org/jfree/data/*.java
+          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-engine-5.7.1.jar:lib/apiguardian-api-1.1.0.jar:lib/junit-jupiter-api-5.7.1.jar:lib/junit-platform-engine-1.7.1.jar:lib/junit-platform-commons-1.7.1.jar:lib/opentest4j-1.2.0.jar:lib/junit-platform-console-standalone-1.5.2.jar;" $(find test/ -name *.java)
           
       - name: running Tests
         run: |
