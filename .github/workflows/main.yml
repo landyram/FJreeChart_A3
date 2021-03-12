@@ -41,7 +41,6 @@ jobs:
           curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar -o lib/apiguardian-api-1.1.0.jar
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar -o lib/junit-platform-commons-1.7.0.jar
           curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o lib/opentest4j-1.2.0.jar
-          curl 
           
           curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.5.2/junit-platform-console-standalone-1.5.2.jar -o lib/junit-platform-console-standalone-1.5.2.jar
       - name: compile src/
