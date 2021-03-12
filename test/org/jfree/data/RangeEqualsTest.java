@@ -1,7 +1,7 @@
 package org.jfree.data;
 
-import static org.junit.Assert.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -28,7 +28,7 @@ class RangeEqualsTest {
     Range range1 = new Range(1, 1);
     Range range2 = new Range(1, 1);
 
-    assertEquals(true, range1.equals(range2));
+    assertTrue(range1.equals(range2));
   }
 
   @Test
@@ -36,7 +36,7 @@ class RangeEqualsTest {
     Range range1 = new Range(1, 3);
     Range range2 = new Range(4, 12);
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
   @Test
@@ -44,7 +44,7 @@ class RangeEqualsTest {
     Range range1 = new Range(1, 3);
     Range range2 = new Range(1, 12);
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
   @Test
@@ -52,7 +52,7 @@ class RangeEqualsTest {
     Range range1 = new Range(-3, -1);
     Range range2 = new Range(-3, -1);
 
-    assertEquals(true, range1.equals(range2));
+    assertTrue(range1.equals(range2));
   }
 
   @Test
@@ -60,7 +60,7 @@ class RangeEqualsTest {
     Range range1 = new Range(-8, -4);
     Range range2 = new Range(-3, -1);
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
   @Test
@@ -68,7 +68,7 @@ class RangeEqualsTest {
     Range range1 = new Range(3, 7);
     Range range2 = new Range(-7, -3);
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
   @Test
@@ -76,10 +76,10 @@ class RangeEqualsTest {
     Range range1 = new Range(-7, -3);
     Range range2 = new Range(3, 7);
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
-  @SuppressWarnings("null")
+  /* removed due to no mentioned in the document about exceptions
   @Test
   void testEqualsNull() {
     Range range1 = null;
@@ -87,13 +87,14 @@ class RangeEqualsTest {
 
     assertThrows(NullPointerException.class, () -> range1.equals(range2));
   }
+  */
 
   @Test
   void testEqualsOneNull() {
     Range range1 = new Range(6, 7);
     Range range2 = null;
 
-    assertEquals(false, range1.equals(range2));
+    assertFalse(range1.equals(range2));
   }
 
   @Test
@@ -101,6 +102,6 @@ class RangeEqualsTest {
     Range range = new Range(6, 7);
     Object obj = new Object();
 
-    assertEquals(false, range.equals(obj));
+    assertFalse(range.equals(obj));
   }
 }
