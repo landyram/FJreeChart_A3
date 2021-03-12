@@ -38,10 +38,10 @@ jobs:
 
           curl https://repo1.maven.org/maven2/junit/junit/3.8/junit-3.8.jar -o lib/junit-3.8.jar
           curl https://repo1.maven.org/maven2/junit/junit/3.8.2/junit-3.8.2.jar -o lib/junit-3.8.2.jar
-          curl https://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar
-          curl https://repo1.maven.org/maven2/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar
-          curl https://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.jar
-          curl https://repo1.maven.org/maven2/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar
+          curl https://repo1.maven.org/maven2/cglib/cglib/2.1_3/cglib-2.1_3.jar -o lib/cglib-2.1_3.jar
+          curl https://repo1.maven.org/maven2/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar -o lib/cglib-nodep-2.1_3.jar
+          curl https://repo1.maven.org/maven2/org/objenesis/objenesis/1.0/objenesis-1.0.jar -o lib/objenesis-1.0.jar
+          curl https://repo1.maven.org/maven2/org/beanshell/bsh-core/2.0b4/bsh-core-2.0b4.jar -o lib/bsh-core-2.0b4.jar
           
       - name: compile src/
         run: |
