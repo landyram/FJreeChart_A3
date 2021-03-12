@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Getting libraries
         run: |
-          mkdir jbin
+          mkdir bin
           mkdir lib
           # Libraries for src/
           curl https://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar -o lib/javax.servlet-api-3.0.1.jar
@@ -38,18 +38,18 @@ jobs:
           curl https://repo1.maven.org/maven2/org/mockito/mockito-all/2.0.2-beta/mockito-all-2.0.2-beta.jar -o lib/mockito-all-2.0.2-beta.jar
           curl https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar -o lib/junit-jupiter-api-5.7.0.jar
           curl https://repo1.maven.org/maven2/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar -o lib/apiguardian-api-1.1.0.jar
-          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar -o junit-platform-commons-1.7.0.jar
-          curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o opentest4j-1.2.0.jar
+          curl https://repo1.maven.org/maven2/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar -o lib/junit-platform-commons-1.7.0.jar
+          curl https://repo1.maven.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar -o lib/opentest4j-1.2.0.jar
           
       - name: compile src/
         run: |
           # javac directory classpath soruce
-          javac -d jbin -cp "jbin:lib/jcommon-1.0.24.jar:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
+          javac -d bin -cp "bin:lib/jcommon-1.0.24.jar:lib/jcommon-1.0.0-rc1.jar:lib/javax.servlet-api-3.0.1.jar:lib/gnujaxp-1.0.0.jar;" $(find src/ -name "*.java")
       
       - name: compile test/
         run: |
-          javac -d jbin -cp "jbin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.7.0.jar;" $(find test/ -name "*.java")
+          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.7.0.jar;" $(find test/ -name "*.java")
           
       - name: running Tests
         run: |
-          java -jar lib/junit-platform-console-standalone-1.5.2.jar --class-path jbin --scan-class-path
+          java -jar lib/junit-platform-console-standalone-1.5.2.jar --class-path bin --scan-class-path
