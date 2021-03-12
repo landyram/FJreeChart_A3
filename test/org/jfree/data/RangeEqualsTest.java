@@ -79,6 +79,7 @@ class RangeEqualsTest {
     assertEquals(false, range1.equals(range2));
   }
 
+  @SuppressWarnings("null")
   @Test
   void testEqualsNull() {
     Range range1 = null;

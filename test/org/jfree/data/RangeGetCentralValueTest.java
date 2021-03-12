@@ -89,6 +89,7 @@ class RangeGetCentralValueTest {
     assertEquals(2.5, actual);
   }
 
+  @SuppressWarnings("null")
   @Test
   void testCentralValueNull() {
     Range range = null;

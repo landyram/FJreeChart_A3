@@ -113,6 +113,7 @@ class RangeConstraintTest {
     assertEquals(1, actual);
   }
 
+  @SuppressWarnings("null")
   @Test
   void testConstrainNull() {
     Range range = null;
