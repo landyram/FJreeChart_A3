@@ -48,7 +48,7 @@ jobs:
       
       - name: compile test/
         run: |
-          javac -d bin -cp "bin:lib/mockito-all-2.0.2-beta.jar:lib/junit-jupiter-api-5.7.0.jar:lib/apiguardian-api-1.1.0.jar:lib/junit-platform-commons-1.7.0.jar:lib/opentest4j-1.2.0.jar;" $(find test/ -name "*.java")
+          javac -d bin -cp "bin:lib/junit-jupiter-api-5.7.0.jar:lib/mockito-all-2.0.2-beta.jar:lib/apiguardian-api-1.1.0.jar:lib/junit-platform-commons-1.7.0.jar:lib/opentest4j-1.2.0.jar;" $(find test/ -name "*.java")
           
       - name: running Tests
         run: |
