@@ -74,7 +74,7 @@ class RangeHashCodeTest {
   @Test
   public void testHashCodeOneBound2() {
     Range r1 = new Range(0.0, 10.0);
-    Range r2 = new Range(0.0, 10.0);
+    Range r2 = new Range(0.0, 20.0);
     assertFalse(r1.hashCode() == r2.hashCode());
   }
 }
